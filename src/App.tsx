@@ -12,7 +12,8 @@ function App() {
       element: <Sidebar />,
       errorElement: <ErrorpageView />,
       children: [
-        {path: mappings.homepage, element: <HomepageView />}
+        {path: mappings.homepage, element: <HomepageView />},
+        {path: mappings.addMisdar, element: "None"}
       ]
     }
   ])
