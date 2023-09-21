@@ -4,7 +4,6 @@ import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -23,10 +22,11 @@ import TableChartIcon from '@mui/icons-material/TableChart';
 import UpdateIcon from '@mui/icons-material/Update';
 import LogoutIcon from '@mui/icons-material/Logout';
 import InfoIcon from '@mui/icons-material/Info';
+import HomeIcon from '@mui/icons-material/Home';
 import { useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-
+import { Outlet } from 'react-router';
 
 const drawerWidth = 270;
 
@@ -102,7 +102,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function Sidebar() {
     const theme = useTheme();
 
-    const isBigScreen = useMediaQuery(theme.breakpoints.up('md'));
+    const isBigScreen = useMediaQuery(theme.breakpoints.up('xl'));
     const [open, setOpen] = useState(isBigScreen);
 
     useEffect(() => {
@@ -120,7 +120,7 @@ export default function Sidebar() {
 
   const rasarOptions = [{text: "הוסף משתמש", icon: <PersonAddAltIcon color='primary'/>}, {text: "הרשאות משתמש", icon: <AdminPanelSettingsIcon color='primary'/>}];
   
-  const rasarAsisstantOptions = [{text: "הוסף מסדר", icon: <DomainAddIcon color='primary'/> }, {text: "הורדת אקסל מסדר", icon: <TableChartIcon color='primary'/>}];
+  const rasarAsisstantOptions = [{text: "מסך הבית", icon: <HomeIcon color='primary' />}, {text: "הוסף מסדר", icon: <DomainAddIcon color='primary'/> }, {text: "הורדת אקסל מסדר", icon: <TableChartIcon color='primary'/>}];
 
   const rasarWorkerOptions = [{text: "עדכון והפצת תאריך מסדר", icon: <UpdateIcon color='primary'/>}];
 
@@ -147,13 +147,14 @@ export default function Sidebar() {
       </Box>
   )});
 
+
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="open drawer"
+            aria-label="פתיחת סייד באר"
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
@@ -176,9 +177,9 @@ export default function Sidebar() {
           {OptionsListComp}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 1.5 }}>
         <DrawerHeader />
-        <Typography>Hello world</Typography>
+        <Outlet />
       </Box>
     </Box>
   );
