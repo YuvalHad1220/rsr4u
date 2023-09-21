@@ -1,9 +1,9 @@
 import { useRouteError } from "react-router";
 
-const ErrorpageView = () => {
+const ErrorPage = () => {
     const error = useRouteError();
     console.log(error);
     return <h1>an error was logged in console</h1>;
 };
 
-export default ErrorpageView;
+export default ErrorPage;

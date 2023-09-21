@@ -18,8 +18,8 @@ const StatusCard: React.FC<StatusCardProps> = ({mainTitle, secondaryTitle, botto
         flexDirection: "column",
         justifyContent: "space-between",
         padding: 1.8,
-        height: "10rem",
-        width: "24rem"
+        height: "8rem",
+        width: "18rem" // may be changed using grid
     };
 
     const header = (

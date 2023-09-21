@@ -1,18 +1,20 @@
-import MainTheme from "./MainTheme"
+import MainTheme from "./General/MainTheme"
 import Sidebar from "./General/Sidebar";
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import mappings from "./assets/routeMappings";
-import HomepageView from "./Homepage/HomepageView";
-import ErrorpageView from "./Errorpage/ErrorpageView";
+import HomePage from "./Pages/HomePage/HomePage";
+import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import DevPage from "./Pages/DevPage/DevPage";
 
 function App() {
   const router = createBrowserRouter([
     {path: mappings.root, element: <Navigate to={mappings.homepage}/>},
     {
       element: <Sidebar />,
-      errorElement: <ErrorpageView />,
+      errorElement: <ErrorPage />,
       children: [
-        {path: mappings.homepage, element: <HomepageView />},
+        {path: mappings.homepage, element: <HomePage />},
+        {path: mappings.devDebug, element: <DevPage />},
         {path: mappings.addMisdar, element: "None"}
       ]
     }

@@ -104,7 +104,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function Sidebar() {
     const theme = useTheme();
 
-    const isBigScreen = useMediaQuery(theme.breakpoints.up('xl'));
+    const isBigScreen = useMediaQuery(theme.breakpoints.up('lg'));
     const [open, setOpen] = useState(isBigScreen);
 
     useEffect(() => {
@@ -119,15 +119,15 @@ export default function Sidebar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const adminOptions = [{text: "דיבאגר", icon: <BugReportIcon color='secondary'/>, to: mappings.addMisdar}];
+  const adminOptions = [{text: "דיבאגר", icon: <BugReportIcon color='secondary'/>, to: mappings.devDebug}];
 
-  const rasarOptions = [{text: "הוסף משתמש", icon: <PersonAddAltIcon color='primary'/>, to: mappings.addMisdar}, {text: "הרשאות משתמש", icon: <AdminPanelSettingsIcon color='primary'/>, to: mappings.addMisdar}];
+  const rasarOptions = [{text: "הוסף משתמש", icon: <PersonAddAltIcon color='primary'/>, to: mappings.addUser}, {text: "הרשאות משתמש", icon: <AdminPanelSettingsIcon color='primary'/>, to: mappings.userPermissions}];
   
-  const rasarAsisstantOptions = [{text: "מסך הבית", icon: <HomeIcon color='primary' />, to: mappings.homepage}, {text: "הוסף מסדר", icon: <DomainAddIcon color='primary'/> , to: mappings.addMisdar}, {text: "הורדת אקסל מסדר", icon: <TableChartIcon color='primary'/>, to: mappings.addMisdar}];
+  const rasarAsisstantOptions = [{text: "מסך הבית", icon: <HomeIcon color='primary' />, to: mappings.homepage}, {text: "הוסף מסדר", icon: <DomainAddIcon color='primary'/> , to: mappings.addMisdar}, {text: "הורדת אקסל מסדר", icon: <TableChartIcon color='primary'/>, to: mappings.downloadMisadar}];
 
-  const rasarWorkerOptions = [{text: "עדכון והפצת תאריך מסדר", icon: <UpdateIcon color='primary'/>, to: mappings.addMisdar}];
+  const rasarWorkerOptions = [{text: "עדכון והפצת תאריך מסדר", icon: <UpdateIcon color='primary'/>, to: mappings.updateAndDistributeMisdar}];
 
-  const loggedInOptions = [{text: "התנתקות", icon: <LogoutIcon color='primary'/>, to: mappings.addMisdar}, {text: "אודות", icon: <InfoIcon color='primary'/>, to: mappings.addMisdar}];
+  const loggedInOptions = [{text: "התנתקות", icon: <LogoutIcon color='primary'/>, to: mappings.logOut}, {text: "אודות", icon: <InfoIcon color='primary'/>, to: mappings.about}];
 
   const optionsList = [adminOptions, rasarAsisstantOptions, rasarWorkerOptions, rasarOptions, loggedInOptions]; // will be determined by permissions system
 

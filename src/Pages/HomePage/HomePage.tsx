@@ -1,10 +1,10 @@
 import Groups2Icon from '@mui/icons-material/Groups2';
-import StatusCard from "../General/Reusables/StatusCard";
+import StatusCard from "../../General/Reusables/StatusCard";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MicrosoftIcon from '@mui/icons-material/Microsoft';
 import { Box } from '@mui/material';
 
-const HomepageView = () => {
+const HomePage = () => {
     return (
         <Box sx={{display: "flex", flexDirection: "row", gap: 1.5}}>
         <StatusCard mainTitle='תאריך המסדר הבא' secondaryTitle={new Date().toLocaleDateString()} bottomTitle='יום שני בשעה 12:00' icon={<Groups2Icon color="secondary"/>} />
@@ -14,4 +14,4 @@ const HomepageView = () => {
     )
 };
 
-export default HomepageView;
+export default HomePage;

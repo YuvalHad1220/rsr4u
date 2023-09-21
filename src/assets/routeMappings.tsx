@@ -1,5 +1,6 @@
 const mappings = {
     root: "/",
+    devDebug: "/devDebug",
     homepage: "/homepage",
     addMisdar: "/addMisdar",
     downloadMisadar: "/downloadMisdar",
