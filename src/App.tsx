@@ -5,6 +5,7 @@ import mappings from "./assets/routeMappings";
 import HomePage from "./Pages/HomePage/HomePage";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import DevPage from "./Pages/DevPage/DevPage";
+import AddMisdarPage from "./Pages/AddMisdarPage/AddMisdarPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,7 +16,7 @@ function App() {
       children: [
         {path: mappings.homepage, element: <HomePage />},
         {path: mappings.devDebug, element: <DevPage />},
-        {path: mappings.addMisdar, element: "None"}
+        {path: mappings.addMisdar, element: <AddMisdarPage />}
       ]
     }
   ])
