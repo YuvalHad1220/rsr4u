@@ -116,7 +116,7 @@ const AddAttendents: React.FC<AddAttendentsProps> = ({onAttendentsData}) => {
     );
 
     return (
-        <Paper sx={{textAlign: "center", height: "100%"}}>
+        <Paper sx={{textAlign: "center", height: "100%", padding: 4, borderRadius: 5,boxShadow: 3,}}>
             <Typography fontWeight="bold">אנא הכנס את שם החייל, ולאחר מכן לחץ אנטר. במידה והמערכת תזהה את החייל הוא יוצג על המסך</Typography>
             <Typography>כדי להוסיף הערת דיגום פתח סוגריים [] וכתוב את פרטי ההערת דיגום</Typography>
             <Typography>על מנת להכניס הערה, פתח סוגריים () וכתוב את פרטי ההערה</Typography>
