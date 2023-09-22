@@ -1,5 +1,16 @@
+import MultipleSelect from "../../General/Reusables/MultilpleSelect";
+
 const DevPage = () => {
-    return "עמוד שבתוכו נוכל לעקוב אחרי הקונטקסט באתר, מצב הסשן וכו'. "
+    
+    const text = "עמוד שבתוכו נוכל לעקוב אחרי הקונטקסט באתר, מצב הסשן וכו'. ";
+
+    return (
+        <>
+        {text}
+        <MultipleSelect options={["יובל", "היה", "פה"]} label="בדיקה" onSelection={console.log}/>
+        </>
+    
+    )
 };
 
 export default DevPage;
