@@ -7,7 +7,7 @@ const DevPage = () => {
     return (
         <>
         {text}
-        <MultipleSelect options={["יובל", "היה", "פה"]} label="בדיקה" onSelection={console.log}/>
+        <MultipleSelect options={["יובל", "היה", "פה"]} label="בדיקה" onSelection={console.log} readOnly/>
         </>
     
     )

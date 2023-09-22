@@ -5,26 +5,24 @@ import React from "react";
 interface MultipleSelectProps {
     label: string, 
     options: string[],
+    readOnly?: boolean
     onSelection: Function // will get values as an array 
 };
 
 
-const MultipleSelect: React.FC<MultipleSelectProps> = ({label, options, onSelection}) => {
-
+const MultipleSelect: React.FC<MultipleSelectProps> = ({label, options, onSelection, readOnly}) => {
     
 return (
     <Autocomplete
       multiple
+      readOnly = {false}
       disableCloseOnSelect
       filterSelectedOptions
       freeSolo
       onChange={(_, v) => onSelection(v)}
       options={options}
     // getOptionLabel={(option) => option} if we wont get an array of string this is how we filter
-      
-      renderInput={(params) => (
-        <TextField {...params} label={label} />
-      )}
+      renderInput={(params) => (<TextField {...params} label={label} inputProps={{...params.inputProps, readOnly: readOnly !== undefined}}/>)}
     />
 
 );
