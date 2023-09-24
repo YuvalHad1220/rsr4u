@@ -10,6 +10,7 @@ const CustomPaper: React.FC<CustomPaperProps> = ({ children, sx, ...rest }) => {
   const defaultSx = {
     borderRadius: 5,
     boxShadow: 3,
+    padding: 2,
   };
 
   return (

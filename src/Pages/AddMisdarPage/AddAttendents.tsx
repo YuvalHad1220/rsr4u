@@ -1,4 +1,4 @@
-import { Button, TextField, Typography, Box, Divider, Pagination, PaginationItem } from "@mui/material";
+import { Button, TextField, Typography, Box, Divider } from "@mui/material";
 import React, { useMemo, useState } from "react";
 import { personData } from "../../assets/interfaces";
 import Fuse from "fuse.js";
@@ -38,7 +38,6 @@ const AddAttendents: React.FC<AddAttendentsProps> = ({onAttendentsData}) => {
     const [suggested, setSuggested] = useState<fuseData>({name: "", score: 0});
     
     const fuse = useMemo(() => new Fuse(userDatas, fuseOptions), []);
-
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLineData(event.target.value);
@@ -82,54 +81,55 @@ const AddAttendents: React.FC<AddAttendentsProps> = ({onAttendentsData}) => {
         onAttendentsData(attendentsData);
     }
 
-    const foundSoldierData = useMemo(() => {
-        if (!lineData){
+    const foundSoldierText = useMemo(() => {
+        if (!lineData)
             return null;
-        }
-        if (!suggested.name) {
-            return <Typography fontWeight="bold" bgcolor="error.light">לא נמצא חייל, אנא תקן את השם או פנה לרסר</Typography>;
-        }
-
-        if (suggested.score * 100 < 1){
-            return <Typography fontWeight="bold" bgcolor="success.light">נמצא החייל {suggested.name} בהתאמה</Typography>
-        }
-
-        else {
-            return <Typography fontWeight="bold" bgcolor="info.light">האם התכוונת ל{suggested.name}? ({(suggested.score * 100).toFixed(1)}% התאמה)</Typography>
-        }
+        if (!suggested.name) 
+            return <Typography fontWeight="bold" color="error.light">לא נמצא חייל, אנא תקן את השם או פנה לרסר</Typography>;
+        if (suggested.score * 100 < 1)
+            return <Typography fontWeight="bold" color="success.light">נמצא החייל {suggested.name} בהתאמה</Typography>
+        else 
+            return <Typography fontWeight="bold" color="info.light">האם התכוונת ל{suggested.name}? ({(suggested.score * 100).toFixed(1)}% התאמה)</Typography>
+        
 
     }, [suggested, lineData]);
 
-    const items = (
-        attendentsData.map(dataPoint => {
-            return (
-                <Box key={dataPoint.name} sx={{display: "flex", flexDirection: "row", justifyContent: "space-between", margin:3}}>
-                <Typography>ענף</Typography>
-                <Divider light orientation="vertical" />
-                <Typography>שם החייל</Typography>
-                <Divider orientation="vertical" />
-                <Typography>הערות לבוש</Typography>
-                <Divider orientation="vertical" />
-                <Typography>הערות</Typography>
-
-            </Box>
-            );
-        })
+    const addedAttendents = (
+        attendentsData.map(dataPoint => (
+                <Box key={dataPoint.name} sx={{display: "flex", flexDirection: "row", justifyContent: "space-between", paddingX: 3}}>
+                    <Typography>ענף</Typography>
+                    <Divider light orientation="vertical" />
+                    <Typography>שם החייל</Typography>
+                    <Divider orientation="vertical" />
+                    <Typography>הערות לבוש</Typography>
+                    <Divider orientation="vertical" />
+                    <Typography>הערות</Typography>
+                </Box>
+            ))
     );
-    const page = 2;
-    const count = 3;
+    const InstructionsBox = (
+        <Box paddingY={2}>
+            <Typography fontWeight="bold">הכנס את שם החייל (לאישור לחץ אנטר)</Typography>
+            <Typography>הערת דיגום כתוב בתוך []</Typography>
+            <Typography>הערה רגילה כתוב בתוך ()</Typography>
+            <Typography>בסיום לחץ על כפתור "לשלב הבא"</Typography>
+        </Box>
+    );
+
+    const inputBox = (
+        <Box display="flex" flexDirection="column" justifyContent="center">
+            <Box height="3.5rem" > {foundSoldierText} </Box>
+            <TextField fullWidth value={lineData} onKeyDown={handleKeyDown} onChange={handleInputChange}/>
+            <Button fullWidth variant="contained" onClick={onButton} sx={{marginTop: 3}}>עבור לשלב הבא</Button>
+        </Box>
+    );
 
     return (
-        <CustomPaper sx={{textAlign: "center", height: "100%", padding: 2, display: "flex", flexDirection: "column"}}>
+        <CustomPaper sx={{textAlign: "center", height: "100%", display: "flex", flexDirection: "column"}}>
             <CustomPagination count={3} page={1} sx={{alignSelf: "end"}} />
-            <Typography fontWeight="bold">אנא הכנס את שם החייל, ולאחר מכן לחץ אנטר. במידה והמערכת תזהה את החייל הוא יוצג על המסך</Typography>
-            <Typography>כדי להוסיף הערת דיגום פתח סוגריים [] וכתוב את פרטי ההערת דיגום</Typography>
-            <Typography>על מנת להכניס הערה, פתח סוגריים () וכתוב את פרטי ההערה</Typography>
-            <Typography>עם סיום הכנסת כל השמות אנא לחץ על הכפתור "עבור לשלב הבא" על מנת להזין את הפרטים למערכת</Typography>
-            <TextField fullWidth value={lineData} onKeyDown={handleKeyDown} onChange={handleInputChange}/>
-            <Typography>{foundSoldierData}</Typography>
-            <Button fullWidth variant="contained" onClick={onButton}>עבור לשלב הבא</Button>
-            {items}
+            {InstructionsBox}
+            {inputBox}
+            {addedAttendents}
         </CustomPaper>
     )
 };
