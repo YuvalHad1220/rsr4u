@@ -24,10 +24,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import InfoIcon from '@mui/icons-material/Info';
 import HomeIcon from '@mui/icons-material/Home';
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
-import { useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import mappings from '../assets/routeMappings';
 
@@ -103,6 +103,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function Sidebar() {
+  const location = useLocation();
     const theme = useTheme();
 
     const isBigScreen = useMediaQuery(theme.breakpoints.up('lg'));
@@ -183,7 +184,8 @@ export default function Sidebar() {
           >
             <MenuIcon />
           </IconButton>
-
+          <Typography variant='h6' fontWeight="bold">{location.pathname}</Typography>
+          
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
