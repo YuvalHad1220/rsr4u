@@ -16,9 +16,9 @@ const AddMisdarPage = () => {
 
     return (
         <Grid container width="100%" height="100%" spacing={1.5}>
-            <Grid item xs={4}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
-            <Grid item xs={4}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
-            <Grid item xs={4}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
+            <Grid item md={4} sm={12}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
+            <Grid item md={4} sm={12}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
+            <Grid item md={4} sm={12}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
         </Grid>
     );
 };

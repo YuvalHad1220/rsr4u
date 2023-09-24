@@ -1,4 +1,5 @@
-import { Paper, SxProps, Typography, Box, Divider, SvgIconProps } from "@mui/material";
+import { SxProps, Typography, Box, Divider, SvgIconProps } from "@mui/material";
+import CustomPaper from "./CustomPaper";
 
 interface StatusCardProps {
     mainTitle: string,
@@ -12,8 +13,6 @@ interface StatusCardProps {
 
 const StatusCard: React.FC<StatusCardProps> = ({mainTitle, secondaryTitle, bottomTitle, icon, secondaryTitleColor}) => {
     const paperSx: SxProps = {
-        borderRadius: 5,
-        boxShadow: 3,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -42,10 +41,10 @@ const StatusCard: React.FC<StatusCardProps> = ({mainTitle, secondaryTitle, botto
     );
     
     return (
-        <Paper sx={paperSx}>
+        <CustomPaper sx={paperSx}>
             {header}
             {footer}
-        </Paper>
+        </CustomPaper>
     );
 };
 

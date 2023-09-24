@@ -1,7 +1,9 @@
-import { Paper, Button, TextField, Typography, Box, Divider } from "@mui/material";
+import { Button, TextField, Typography, Box, Divider, Pagination, PaginationItem } from "@mui/material";
 import React, { useMemo, useState } from "react";
 import { personData } from "../../assets/interfaces";
 import Fuse from "fuse.js";
+import CustomPaper from "../../General/Reusables/CustomPaper";
+import CustomPagination from "../../General/Reusables/CustomPagination";
 
 interface AddAttendentsProps {
     onAttendentsData: Function
@@ -114,9 +116,12 @@ const AddAttendents: React.FC<AddAttendentsProps> = ({onAttendentsData}) => {
             );
         })
     );
+    const page = 2;
+    const count = 3;
 
     return (
-        <Paper sx={{textAlign: "center", height: "100%", padding: 4, borderRadius: 5,boxShadow: 3,}}>
+        <CustomPaper sx={{textAlign: "center", height: "100%", padding: 2, display: "flex", flexDirection: "column"}}>
+            <CustomPagination count={3} page={1} sx={{alignSelf: "end"}} />
             <Typography fontWeight="bold">אנא הכנס את שם החייל, ולאחר מכן לחץ אנטר. במידה והמערכת תזהה את החייל הוא יוצג על המסך</Typography>
             <Typography>כדי להוסיף הערת דיגום פתח סוגריים [] וכתוב את פרטי ההערת דיגום</Typography>
             <Typography>על מנת להכניס הערה, פתח סוגריים () וכתוב את פרטי ההערה</Typography>
@@ -125,7 +130,7 @@ const AddAttendents: React.FC<AddAttendentsProps> = ({onAttendentsData}) => {
             <Typography>{foundSoldierData}</Typography>
             <Button fullWidth variant="contained" onClick={onButton}>עבור לשלב הבא</Button>
             {items}
-        </Paper>
+        </CustomPaper>
     )
 };
 
