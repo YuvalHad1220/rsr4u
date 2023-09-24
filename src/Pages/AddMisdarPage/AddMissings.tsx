@@ -54,12 +54,27 @@ const AddMissings = () => {
             <Divider light orientation="vertical" />
             <MultipleSelect label="סיבות העדרות קבועה" options={soldier.constantMissingReasons} onSelection={console.log} value={[soldier.constantMissingReasons[0]]} readOnly/>
             <Divider light orientation="vertical" />
-            <Button color="success" variant="outlined">אשר העדרות חייל</Button>
-            <Button color="error" variant="outlined">דחה העדרות חייל</Button>
+            <Button color="success" variant="outlined">אשר</Button>
+            <Button color="error" variant="outlined">דחה</Button>
          </Box>   
         ) 
 
     }, []);
+
+    const constantPermissionBox = (
+        <Box paddingY={1.6}>
+            <Typography fontWeight="bold">חיילים עם אישור קבוע (במידה וידוע שיש לחייל סיבת העדרות נוספת ניתן לבחור אותה מהמערך)</Typography>
+            <Button>אשר את כל החיילים</Button>
+            {constantPermissionGroup}
+        </Box>
+    );
+
+    const oneTimePermissionBox = (
+        <Box paddingY={1.6}>
+            <Typography fontWeight="bold">חיילים עם אישור חד פעמי. שים לב שעל כל ניצול אישור, אתה מפחית ממכסת האישורים של החייל</Typography>
+
+        </Box>
+    );
  
 
 
@@ -67,9 +82,8 @@ const AddMissings = () => {
         <CustomPaper sx={{textAlign: "center", height: "100%", display: "flex", flexDirection: "column"}}>
             <CustomPagination count={3} page={2} sx={{alignSelf: "end"}} />
             {InstructionsBox}
-            <Typography fontWeight="bold">חיילים עם אישור קבוע (במידה וידוע שיש לחייל סיבת העדרות נוספת ניתן לבחור אותה מהמערך)</Typography>
-            <Button>אשר העדרות כל החיילים</Button>
-            {constantPermissionGroup}
+            {constantPermissionBox}
+            {oneTimePermissionBox}
         </CustomPaper>
     );
 };
