@@ -198,7 +198,7 @@ export default function Sidebar() {
           {OptionsListComp}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, pt: 1.5, pl: 1.5, height: "calc(100vh - 64px)" }}>
+      <Box component="main" sx={{ flexGrow: 1, pt: 1.5, px: 1.5, height: "calc(100vh - 64px)" }}>
         <DrawerHeader />
         <Outlet />
       </Box>
