@@ -6,8 +6,7 @@ const mappings = {
     addMisdar: "/addMisdar",
     downloadMisadar: "/downloadMisdar",
     updateAndDistributeMisdar: "/updateAndDistributeMisdar",
-    addUser: "/addUser",
-    userPermissions: "/userPermissions",
+    userPermissions: "/usersPage",
     logOut: "/logOut",
     about: "/about"
 };

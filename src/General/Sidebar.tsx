@@ -123,8 +123,7 @@ export default function Sidebar() {
   };
   const adminOptions = [{text: "דיבאגר", icon: <BugReportIcon color='secondary'/>, to: mappings.devDebug}];
   const rasarOptions = [
-    {text: "הוסף משתמש", icon: <PersonAddAltIcon color='primary'/>, to: mappings.addUser}, 
-    {text: "הרשאות משתמש", icon: <AdminPanelSettingsIcon color='primary'/>, to: mappings.userPermissions}
+    {text: "משתמשי מערכת", icon: <AdminPanelSettingsIcon color='primary'/>, to: mappings.userPermissions}
   ];
   const rasarAsisstantOptions = [
     {text: "מסך הבית", icon: <HomeIcon color='primary' />, to: mappings.homepage}, 

@@ -1,8 +1,31 @@
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
+import CustomPaper from "../../General/Reusables/CustomPaper";
 
 const UpdateAndDistributeMisdarPage = () => {
     return (
-        <Typography>עמוד בו יהיה ניתן להציג את תאריך המסדר הנוכחי, תאריך המסדר הבא. יהיה גם ניתן לשנות את התאריך של המסדר הנוכחי (או המסדר הבא) ולהפיץ על כך הודעה, גם בווצאפ (ידנית) וגם בארמי (ישולב אוטומטית בהמשך)</Typography>
+        <Grid height="100%" container columnSpacing={1.5} rowGap={1.5}>
+        <Grid item xs={6}>
+                <CustomPaper sx={{height: "100%"}}>
+                    נציג כאן אם נקבע מסדר 
+                </CustomPaper>
+            </Grid>
+            <Grid item xs={6}>
+            <CustomPaper sx={{height: "100%"}}>
+                    כאן נציג אם אנחנו נרצה לשנות תאריך מסדר: זה יהיה טופס שבו יהיה ניתן להזין תאריך ושעה, ועל מנת לשנות את התאריך יופיע השם החדש
+                </CustomPaper>
+            </Grid>
+            <Grid item xs={6}>
+                <CustomPaper sx={{height: "100%"}}>
+                כאן יופיע כפתור "שלח לארמי" ותהיה טעינה. כמובן שנעדכן אם זה הצליח או לא 
+                </CustomPaper>
+            </Grid>
+            <Grid item xs={6}>
+            <CustomPaper sx={{height: "100%"}}>
+                כאן יופיע כפתור "עדכן שליחת הודעה בווצאפ"
+                </CustomPaper>
+            </Grid>
+
+        </Grid>
     )
 };
 export default UpdateAndDistributeMisdarPage;
