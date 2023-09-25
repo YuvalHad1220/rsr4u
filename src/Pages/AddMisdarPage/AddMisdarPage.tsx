@@ -18,7 +18,7 @@ const AddMisdarPage = () => {
     };
 
     return (
-        <Grid container width="100%" height="100%" spacing={1.5}>
+        <Grid container width="100%" height="100%" gap={1.5}>
             <Grid item md={4} sm={12}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
             {gotAttendents && <Grid item md={4} sm={12}><AddMissings/></Grid>}
             {/*<Grid item md={4} sm={12}><AddAttendents onAttendentsData={onAttendentsData}/></Grid> */}
