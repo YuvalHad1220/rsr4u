@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import CustomPaper from "../../General/Reusables/CustomPaper";
 
 const UpdateAndDistributeMisdarPage = () => {
@@ -6,7 +6,7 @@ const UpdateAndDistributeMisdarPage = () => {
         <Grid height="100%" container columnSpacing={1.5} rowGap={1.5}>
         <Grid item xs={6}>
                 <CustomPaper sx={{height: "100%"}}>
-                    נציג כאן אם נקבע מסדר 
+                    נציג כאן אם נקבע מסדר, בנוסף נציג אם יש הערות (למשל: מסדר ניקיון, מסדר עם הרמח, וכו') 
                 </CustomPaper>
             </Grid>
             <Grid item xs={6}>

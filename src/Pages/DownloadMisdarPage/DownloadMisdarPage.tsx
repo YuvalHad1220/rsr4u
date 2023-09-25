@@ -4,15 +4,13 @@ import mData from "./MOCK_DATA.json"
 import { useState } from "react";
 
 const DownloadMisdarPage = () => {
-    const [visisbleRows, setVisibleRows] = useState(5);
+    const [visisbleRows, setVisibleRows] = useState(20);
     const [pageIndex, setPageIndex] = useState(0);
     const CustomTableCell = styled(TableCell)({textAlign: "center"});
     const HeaderTableCell = styled(CustomTableCell)({fontWeight: "bold", fontSize: "1rem"});
     return (
         <CustomPaper sx={{height: "100%"}}>
-            <Typography>עמוד בו יהיה אפשר להוריד מסדר בודד בתאריך מסוים, או טווח מסוים של מסדרים שירדו בקובץ אקסל.</Typography>
-            <Typography>כנראה גם שנרצה להציג כאן את המסדרים האחרונים? בכל מקרה בואו ננסה להציג את הטבלה</Typography>
-
+            עמוד של צפייה והורדת מסדרים? מניח שאנחנו נרצה תמיד לראות את המסדר האחרון אבל נוכל להזיז בין תאריכים + כפתור ההורדה יפתח מודל שיתן לנו להוקיד את המסדרים בטווח שנרצה (דיפולט יהיה כמובן המסדר האחרון בלבד)
             <TableContainer sx={{borderTopLeftRadius: 10, borderTopRightRadius: 10,}}>
                 <Table stickyHeader>
                     <TableHead>
@@ -53,7 +51,7 @@ const DownloadMisdarPage = () => {
             <TablePagination
                                 count={mData.length}
                                 labelRowsPerPage= "שורות לעמוד:"
-                                rowsPerPageOptions={[5, 25, 50]}
+                                rowsPerPageOptions={[20, -1]}
                                 labelDisplayedRows={({ from, to, count }) =>
                                 `${from}-${to} מתוך ${count !== -1 ? count : `${to}`}`}
                                 onPageChange={(_, page) => setPageIndex(page)} 

@@ -15,7 +15,6 @@ import ListItemText from '@mui/material/ListItemText';
 
 
 import BugReportIcon from '@mui/icons-material/BugReport';
-import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import DomainAddIcon from '@mui/icons-material/DomainAdd';
 import TableChartIcon from '@mui/icons-material/TableChart';
@@ -158,10 +157,9 @@ export default function Sidebar() {
                 }
 
             </NavLink>
-
           )
       })}
-      <Divider/>
+      <Divider />
       </Box>
   )});
 
@@ -193,7 +191,7 @@ export default function Sidebar() {
             <ChevronRightIcon />
             </IconButton>
         </DrawerHeader>
-        <List sx={{padding: 0}}>
+        <List>
           {OptionsListComp}
         </List>
       </Drawer>
