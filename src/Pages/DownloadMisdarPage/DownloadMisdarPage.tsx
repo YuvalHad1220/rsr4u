@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow, Typography, styled } from "@mui/material"
+import { Stack, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography, styled } from "@mui/material"
 import CustomPaper from "../../General/Reusables/CustomPaper"
 import mData from "./MOCK_DATA.json"
 import { useState } from "react";
@@ -9,8 +9,14 @@ const DownloadMisdarPage = () => {
     const CustomTableCell = styled(TableCell)({textAlign: "center"});
     const HeaderTableCell = styled(CustomTableCell)({fontWeight: "bold", fontSize: "1rem"});
     return (
-        <CustomPaper sx={{height: "100%"}}>
+        <Stack gap={1.5} height="100%">
+            <CustomPaper sx={{height: "15%"}}>
             עמוד של צפייה והורדת מסדרים? מניח שאנחנו נרצה תמיד לראות את המסדר האחרון אבל נוכל להזיז בין תאריכים + כפתור ההורדה יפתח מודל שיתן לנו להוקיד את המסדרים בטווח שנרצה (דיפולט יהיה כמובן המסדר האחרון בלבד)
+
+            <Typography fontWeight="bold">זה גם יהיה נחמד אם יהיה איזשהו card שקשור להורדת המסדר (כלומר להפריד בין לוגיקת ההורדה ללוגיקת הטבלה)</Typography>
+            </CustomPaper>
+
+            <CustomPaper sx={{height: "80%"}}>
             <TableContainer sx={{borderTopLeftRadius: 10, borderTopRightRadius: 10,}}>
                 <Table stickyHeader>
                     <TableHead>
@@ -60,6 +66,7 @@ const DownloadMisdarPage = () => {
                                 onRowsPerPageChange={(e) => setVisibleRows(parseInt(e.target.value))} 
                             />
         </CustomPaper>
+        </Stack>
     );
 };
 
