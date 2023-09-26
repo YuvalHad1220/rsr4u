@@ -16,7 +16,7 @@ const DownloadMisdarPage = () => {
             <Typography fontWeight="bold">זה גם יהיה נחמד אם יהיה איזשהו card שקשור להורדת המסדר (כלומר להפריד בין לוגיקת ההורדה ללוגיקת הטבלה)</Typography>
             </CustomPaper>
 
-            <CustomPaper sx={{height: "80%"}}>
+            <CustomPaper sx={{height: "85%"}}>
             <TableContainer sx={{borderTopLeftRadius: 10, borderTopRightRadius: 10,}}>
                 <Table stickyHeader>
                     <TableHead>
