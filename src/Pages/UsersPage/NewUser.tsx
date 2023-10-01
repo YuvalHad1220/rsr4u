@@ -8,7 +8,10 @@ const NewUser = () => {
     const [tabState, setTabState] = useState(states.SignUp);
     
     const ApproveUser = () => (
-        <Typography>פה נראה רשימה של משתמשים המחכים לאישור</Typography>
+        <Box>
+            <Typography>פה נראה רשימה של משתמשים המחכים לאישור</Typography>
+            <Typography>על מנת להתחיל לאשר משתמשים - ניאלץ להזין סיסמה שוב או שזה מוגזם? אם לא אז אפשר פשוט לכתוב בהרשמה "המערכת זיהתה שאתה רושם דרגה מתחתיך. האם לאשר אותו אוטומטית?"</Typography>
+        </Box>
     );
     const SignUpUser = () => (
         <Box component="form" sx={{display: "flex", flexDirection: "column", justifyContent: "center", gap: 1.5}}>

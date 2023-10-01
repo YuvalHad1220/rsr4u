@@ -1,18 +1,21 @@
 import { Tab, Tabs } from "@mui/material";
 import CustomPaper from "../../General/Reusables/CustomPaper";
+import { useState } from "react";
 
 const Misdar = () => {
     enum states {
         nearMisdar,
         nextMisdars,
         scheduledMisdars
-    }
+    };
+    const [tabState, setTabState] = useState(states.nearMisdar);
+
     return (
-        <CustomPaper sx={{height: "100%", paddingTop: 1.5}}>
-            <Tabs value={states.nearMisdar} sx={{paddingBottom: 1.5}}>
-                <Tab value={states.nearMisdar} label="מסדר קרוב" />
-                <Tab value={states.nextMisdars} label="מסדרים עתידיים" />
-                <Tab value={states.scheduledMisdars} label="מסדרים מתוזמנים" />
+        <CustomPaper sx={{height: "50%", paddingTop: 1.5}}>
+            <Tabs value={tabState} sx={{paddingBottom: 1.5}}>
+                <Tab value={states.nearMisdar} label="מסדר קרוב" onClick={() => setTabState(states.nearMisdar)}/>
+                <Tab value={states.nextMisdars} label="מסדרים עתידיים" onClick={() => setTabState(states.nextMisdars)} />
+                <Tab value={states.scheduledMisdars} label="מסדרים מתוזמנים" onClick={() => setTabState(states.scheduledMisdars)}/>
             </Tabs>
             נציג כאן אם נקבע מסדר, בנוסף נציג אם יש הערות (למשל: מסדר ניקיון, מסדר עם הרמח, וכו') 
             בנוסף תהיה האופציה לראות: את המסדרים הקרובים שנקבעו עם מידע ידני, תזמוני מסדרים אוטומטיים. לכל מסדר שנקבע ידנית מתוזמן אוטומטי תהיה אופציה למחוק את המסדר. במידה ואנחנו נמחק מסדרים מתוזמנים זה ימחק את כל המסדרים בכל תאריך עתידי.

@@ -14,16 +14,17 @@ const Army = () => {
     );
 
     const NotSentMessageBox = () => (
-        <Box sx={{display: "flex", flexDirection: "column"}}>
+        <Box sx={{display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between"}}>
             <Typography>הודעה לא נשלחה. באפשרותך לשלוח הודעת מערכת (מומלץ) או לשלוח הודעת מערכת בצורה ידנית. שים לב שבמידה ואתה שולח הודעת מערכת ידנית, עליך לאשר את השליחה על מנת שהכפתור יעבוד</Typography>
-            <Box sx={{display: "flex", justifyContent: "end", width: "100%"}}>
+            <Box sx={{display: "flex", justifyContent: "end", gap: 1.5}}>
                     <Button variant="outlined">שלח הודעה ידנית</Button>
-                    <Button variant="contained" >שלח הודעת מערכת</Button>
+                    <Button variant="contained">שלח הודעת מערכת</Button>
             </Box>
+            
         </Box>
     )
     return (
-        <CustomPaper sx={{height: "100%"}}>
+        <CustomPaper sx={{height: "50%"}}>
             {wasMessageSent ? <SentMessageBox /> : <NotSentMessageBox /> }
         </CustomPaper>
     );
