@@ -1,28 +1,23 @@
 import { Grid } from "@mui/material";
-import CustomPaper from "../../General/Reusables/CustomPaper";
+import Whatsapp from "./Whatsapp";
+import SetMisdar from "./SetMisdar";
+import Army from "./Army";
+import Misdar from "./Misdar";
 
 const UpdateAndDistributeMisdarPage = () => {
     return (
         <Grid height="100%" container columnSpacing={1.5} rowGap={1.5}>
-        <Grid item xs={6}>
-                <CustomPaper sx={{height: "100%"}}>
-                    נציג כאן אם נקבע מסדר, בנוסף נציג אם יש הערות (למשל: מסדר ניקיון, מסדר עם הרמח, וכו') 
-                </CustomPaper>
+            <Grid item xs={6}>
+                <Misdar />
             </Grid>
             <Grid item xs={6}>
-            <CustomPaper sx={{height: "100%"}}>
-                    כאן נציג אם אנחנו נרצה לשנות תאריך מסדר: זה יהיה טופס שבו יהיה ניתן להזין תאריך ושעה, ועל מנת לשנות את התאריך יופיע השם החדש
-                </CustomPaper>
+                <SetMisdar />
             </Grid>
             <Grid item xs={6}>
-                <CustomPaper sx={{height: "100%"}}>
-                כאן יופיע כפתור "שלח לארמי" ותהיה טעינה. כמובן שנעדכן אם זה הצליח או לא 
-                </CustomPaper>
+                    <Army />
             </Grid>
             <Grid item xs={6}>
-            <CustomPaper sx={{height: "100%"}}>
-                כאן יופיע כפתור "עדכן שליחת הודעה בווצאפ"
-                </CustomPaper>
+                <Whatsapp />
             </Grid>
 
         </Grid>
