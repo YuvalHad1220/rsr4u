@@ -1,18 +1,15 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import CustomPaper from "../../General/Reusables/CustomPaper";
+import NewUser from "./NewUser";
+import OwnRole from "./OwnRole";
 
 const UsersPage = () => {
     return (
         <Grid container columnSpacing={1.5} height="100%">
-                        <Grid item xs={6}>
+            <Grid item xs={6}>
                 <Stack height="100%" spacing={1.5}>
-                    <CustomPaper sx={{height: "30%"}}>
-                        פה יופיע המידע עלינו
-                    כאן נוכל לראות משתמשים. נוכל להוסיף רק לדרגות שמתחתנו (לא שולל את זה שבטבלה מעל אפשר לראות משתמשים גם בדרגה שלנו)
-                    </CustomPaper>
-                    <CustomPaper sx={{height: "70%"}}>
-                        <Typography>יופיע פה טופס הוספת משתמש</Typography>
-                    </CustomPaper>
+                    <OwnRole />
+                    <NewUser />
                 </Stack>
             </Grid>
             

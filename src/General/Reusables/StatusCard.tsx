@@ -17,7 +17,7 @@ const StatusCard: React.FC<StatusCardProps> = ({mainTitle, secondaryTitle, botto
         flexDirection: "column",
         justifyContent: "space-between",
         padding: 1.8,
-        height: "8rem",
+        height: "15%",
     };
 
     const header = (

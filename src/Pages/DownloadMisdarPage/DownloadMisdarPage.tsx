@@ -17,7 +17,7 @@ const DownloadMisdarPage = () => {
             </CustomPaper>
 
             <CustomPaper sx={{height: "85%"}}>
-            <TableContainer sx={{borderTopLeftRadius: 10, borderTopRightRadius: 10,}}>
+            <TableContainer sx={{borderTopLeftRadius: 10, borderTopRightRadius: 10, height: "94%"}}>
                 <Table stickyHeader>
                     <TableHead>
                         <TableRow>
@@ -55,16 +55,16 @@ const DownloadMisdarPage = () => {
                 </Table>
             </TableContainer>
             <TablePagination
-                                count={mData.length}
-                                labelRowsPerPage= "שורות לעמוד:"
-                                rowsPerPageOptions={[20, -1]}
-                                labelDisplayedRows={({ from, to, count }) =>
-                                `${from}-${to} מתוך ${count !== -1 ? count : `${to}`}`}
-                                onPageChange={(_, page) => setPageIndex(page)} 
-                                page={pageIndex} 
-                                rowsPerPage={visisbleRows} 
-                                onRowsPerPageChange={(e) => setVisibleRows(parseInt(e.target.value))} 
-                            />
+                count={mData.length}
+                labelRowsPerPage= "שורות לעמוד:"
+                rowsPerPageOptions={[20, -1]}
+                labelDisplayedRows={({ from, to, count }) =>
+                `${from}-${to} מתוך ${count !== -1 ? count : `${to}`}`}
+                onPageChange={(_, page) => setPageIndex(page)} 
+                page={pageIndex} 
+                rowsPerPage={visisbleRows} 
+                onRowsPerPageChange={(e) => setVisibleRows(parseInt(e.target.value))} 
+            />
         </CustomPaper>
         </Stack>
     );

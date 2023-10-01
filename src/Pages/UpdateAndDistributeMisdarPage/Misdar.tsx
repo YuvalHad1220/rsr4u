@@ -8,8 +8,8 @@ const Misdar = () => {
         scheduledMisdars
     }
     return (
-        <CustomPaper sx={{height: "100%"}}>
-            <Tabs value={states.nearMisdar}>
+        <CustomPaper sx={{height: "100%", paddingTop: 1.5}}>
+            <Tabs value={states.nearMisdar} sx={{paddingBottom: 1.5}}>
                 <Tab value={states.nearMisdar} label="מסדר קרוב" />
                 <Tab value={states.nextMisdars} label="מסדרים עתידיים" />
                 <Tab value={states.scheduledMisdars} label="מסדרים מתוזמנים" />
