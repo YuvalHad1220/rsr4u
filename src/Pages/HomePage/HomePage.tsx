@@ -1,10 +1,11 @@
-import Groups2Icon from '@mui/icons-material/Groups2';
 import StatusCard from "../../General/Reusables/StatusCard";
+import Groups2Icon from '@mui/icons-material/Groups2';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MicrosoftIcon from '@mui/icons-material/Microsoft';
 import { Box, Divider, Grid, Stack, Typography } from '@mui/material';
 import CustomPaper from '../../General/Reusables/CustomPaper';
 import MultipleSelect from '../../General/Reusables/MultilpleSelect';
+import MisdarLineGraph from "./MisdarLineGraph";
 
 const HomePage = () => {
     return (
@@ -16,9 +17,10 @@ const HomePage = () => {
             </Grid>
             <Grid container columnSpacing={1.5} height="85%">
                 <Grid item xs={8}>
-                    <CustomPaper sx={{height: "100%"}}>
+                    <MisdarLineGraph />
+                    {/* <CustomPaper sx={{height: "100%"}}>
                         כאן יופיע הגרף. אולי נעשה שבתור ברירת מחדל לכל משתמש תהיה האפשרות לעשות את הגרפים שלו? וזה ישמר אוטומטית בענן
-                    </CustomPaper>
+                    </CustomPaper> */}
                 </Grid>
                 <Grid item xs={4}>
                     <CustomPaper sx={{height: "100%", display: "flex", flexDirection: "column", justifyContent: "center"}}>

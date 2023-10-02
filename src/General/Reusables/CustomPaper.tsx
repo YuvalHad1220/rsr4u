@@ -1,15 +1,10 @@
 import { Paper, PaperProps } from '@mui/material';
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-
-interface CustomPaperProps extends PaperProps {
-  children: ReactNode;
-}
-
-const CustomPaper: React.FC<CustomPaperProps> = ({ children, sx, ...rest }) => {
+const CustomPaper: React.FC<PaperProps> = ({ children, sx, ...rest }) => {
   const defaultSx = {
-    borderRadius: 5,
-    boxShadow: 3,
+    borderRadius: 3,
+    boxShadow: 1.2,
     padding: 2,
   };
 
