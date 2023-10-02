@@ -1,5 +1,6 @@
-import { Box, Button, Checkbox, FormControlLabel, TextField, Typography } from "@mui/material";
+import { Box, Checkbox, FormControlLabel, TextField, Typography } from "@mui/material";
 import CustomPaper from "../../General/Reusables/CustomPaper";
+import LoadingButton from "../../General/Reusables/LoadingButton";
 
 const SetMisdar = () => {
     return (
@@ -15,8 +16,8 @@ const SetMisdar = () => {
             <Typography>שים לב: בעת תזמון מסדר כקבוע בשבוע, ההערות המוזנות יהיו תקפות אך ורק למסדר הקרוב, כלומר: ההערות יהיו תקפות חד פעמית למסדר הקרוב</Typography>
             </Box>
             <Box sx={{display: "flex", justifyContent: "end", gap: 1.5}}>
-                    <Button variant="outlined">איפוס</Button>
-                    <Button variant="contained">שלח</Button>
+                    <LoadingButton loading={false} variant="outlined">איפוס</LoadingButton>
+                    <LoadingButton loading={false} variant="contained">שלח</LoadingButton>
             </Box>
 
         </CustomPaper>

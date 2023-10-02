@@ -1,6 +1,7 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import CustomPaper from "../../General/Reusables/CustomPaper";
 import { useState } from "react";
+import LoadingButton from "../../General/Reusables/LoadingButton";
 
 const Army = () => {
     const [wasMessageSent, setMessageSent] = useState(false);
@@ -17,8 +18,8 @@ const Army = () => {
         <Box sx={{display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between"}}>
             <Typography>הודעה לא נשלחה. באפשרותך לשלוח הודעת מערכת (מומלץ) או לשלוח הודעת מערכת בצורה ידנית. שים לב שבמידה ואתה שולח הודעת מערכת ידנית, עליך לאשר את השליחה על מנת שהכפתור יעבוד</Typography>
             <Box sx={{display: "flex", justifyContent: "end", gap: 1.5}}>
-                    <Button variant="outlined">שלח הודעה ידנית</Button>
-                    <Button variant="contained">שלח הודעת מערכת</Button>
+                    <LoadingButton  loading={false} variant="outlined">שלח הודעה ידנית</LoadingButton>
+                    <LoadingButton loading={false} variant="contained">שלח הודעת מערכת</LoadingButton>
             </Box>
             
         </Box>

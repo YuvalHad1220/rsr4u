@@ -12,6 +12,9 @@ import {
   ChartOptions,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import EditableTabs from "../../General/Reusables/EditableTabs";
+import { Box } from "@mui/material";
+import { stringToRGBA } from "../../assets/globalFunctions";
 
 ChartJS.register(
   CategoryScale,
@@ -24,24 +27,6 @@ ChartJS.register(
   Legend
 );
 
-function stringToRGBA(str: string) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    
-    const r = (hash & 0xFF) + 50; // Increase red component to lighten the color
-    const g = ((hash >> 8) & 0xFF) + 50; // Increase green component
-    const b = ((hash >> 16) & 0xFF) + 50; // Increase blue component
-    
-    
-    return {
-        backgroundColor: `rgba(${r},${g},${b},0.2)`,
-        borderColor: `rgba(${r},${g},${b},1)`
-    };
-}
-
-
 const options: ChartOptions<'line'> = {
   responsive: true,
   normalized: true,
@@ -53,7 +38,19 @@ const options: ChartOptions<'line'> = {
   },
   scales: {
     y: {
-        beginAtZero: true
+        beginAtZero: true,
+        ticks: {
+            font: {
+                weight: 'bold' // Set the label font weight to bold
+            }
+        }
+    },
+    x: {
+        ticks: {
+            font: {
+                weight: 'bold' // Set the label font weight to bold
+            }
+        }
     }
   }
 };
@@ -87,38 +84,19 @@ const data = {
             label: dataset.name,
             data: dataset.dataPoints,
             ...stringToRGBA(dataset.name),
-            borderWidth: 4,
-            tension: 0.4
+            borderWidth: 8,
+            tension: 0.7
     }
     })
 };
-    // datasets: [
-    //     {
-    //         label: "נוכחות",
-    //         data: recievedData.map(unit => unit.dataPoints[0].value),
-    //         backgroundColor: 'rgba(75, 192, 192, 0.2)',
-    //         borderColor: 'rgba(75, 192, 192, 1)',
-    //         borderWidth: 4,
-    //         tension: 0.4// Adjust the tension value here
-
-    //     },
-    //     {
-    //         label: "הערות משמעת",
-    //         data: recievedData.map(unit => unit.dataPoints[1].value),
-    //         backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    //         borderColor: 'rgba(255, 99, 132, 1)',
-    //         borderWidth: 4,
-    //         tension: 0.4 // Adjust the tension value here
-
-
-    //     }
-    // ]
-
 
 const MisdarLineGraph = () => {
     return (
-        <CustomPaper sx={{height: "100%",}}>
-            <Line options={options} data={data} redraw/>
+        <CustomPaper sx={{height: "100%", padding: 1.5}}>
+            <EditableTabs />
+            <Box sx={{height: "90%"}}>
+                <Line options={options} data={data} redraw/>
+            </Box>
         </CustomPaper>
     )
 };

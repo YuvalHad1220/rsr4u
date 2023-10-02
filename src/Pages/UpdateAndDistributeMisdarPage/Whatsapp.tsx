@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CustomPaper from "../../General/Reusables/CustomPaper";
-import { Box, Button, Checkbox, Typography } from "@mui/material";
+import { Box, Checkbox, Typography } from "@mui/material";
+import LoadingButton from "../../General/Reusables/LoadingButton";
 
 
 const Whatsapp = () => {
@@ -24,7 +25,7 @@ const Whatsapp = () => {
                     <Checkbox color="primary" sx={{padding: 0, mr: 2}}/>
                     <Typography>אני מאשר ששלחתי הודעה על המסדר בתאריך 12.3.23 בווצאפ</Typography>   
                 </Box>
-                    <Button variant="contained">שלח הודעת ווצאפ</Button>
+                    <LoadingButton loading={false} variant="contained">שלח הודעת ווצאפ</LoadingButton>
         </Box>
     );
 

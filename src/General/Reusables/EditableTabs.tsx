@@ -76,7 +76,6 @@ const EditableTabs = () => {
                 onClose={() => setIsSnackbarShown(false)}
                 message="לא ניתן לשמור כרטיסיה ללא שם"
             />
-            <Typography>יהיו טאבים שיהיו צמודים לימין, ולשמאל יהיה כפתור "הוספת כרטיסיה". כשנלחץ על זה תהיה לנו כרטיסיה חדשה שיהיה ניתן לבחור לה שם (במידה ולא נבחר שם אז יקפוץ אלרט שאומר שחייבים שם). הכרטיסייה תהיה ברוחב מלא</Typography>
             <Tabs sx={{width: "100%"}} value={tabValue}>
                 {tabs.map(tab => <Tab key={tab.value} value={tab.value} label={tab.label} onClick={() => setTabValue(tab.value)}/>)}
                 {isInputVisible && <TextInput /> }
