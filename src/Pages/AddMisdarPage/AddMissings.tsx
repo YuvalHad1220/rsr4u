@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import CustomPagination from "../../General/Reusables/CustomPagination";
 import CustomPaper from "../../General/Reusables/CustomPaper";
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Button, ButtonGroup, Divider, Typography } from "@mui/material";
 import MultipleSelect from "../../General/Reusables/MultilpleSelect";
 
 const AddMissings = () => {
@@ -26,7 +26,7 @@ const AddMissings = () => {
             },
             {
                 fullname: "יניר כהן",
-                constantMissingReasons: ["אחזקות חוץ"],
+                constantMissingReasons: ["אחזקות חוץ", "גר רחוק", "סיבות אישיות"],
                 oneTimeMissingReasons: []
 
             }
@@ -52,19 +52,22 @@ const AddMissings = () => {
             <Divider light orientation="vertical" />
             <Typography>{soldier.fullname}</Typography>
             <Divider light orientation="vertical" />
-            <MultipleSelect label="סיבות העדרות קבועה" options={soldier.constantMissingReasons} onSelection={console.log} value={[soldier.constantMissingReasons[0]]} readOnly/>
+            <MultipleSelect sx={{width: "50%"}} label="סיבות העדרות קבועה" options={soldier.constantMissingReasons} onSelection={console.log} value={[soldier.constantMissingReasons[0]]} readOnly/>
             <Divider light orientation="vertical" />
-            <Button color="success" variant="outlined">אשר</Button>
-            <Button color="error" variant="outlined">דחה</Button>
+            <ButtonGroup sx={{width: "40%"}}>
+            <Button sx={{width: "80%"}} color="success" variant="contained">אשר</Button>
+            <Button sx={{width: "80%"}} color="error" variant="contained">דחה</Button>
+            </ButtonGroup>
+
          </Box>   
         ) 
 
     }, []);
 
     const constantPermissionBox = (
-        <Box paddingY={1.6}>
+        <Box display="flex" flexDirection="column" gap={3} justifyContent="center">
             <Typography fontWeight="bold">חיילים עם אישור קבוע (במידה וידוע שיש לחייל סיבת העדרות נוספת ניתן לבחור אותה מהמערך)</Typography>
-            <Button>אשר את כל החיילים</Button>
+            <Button variant="contained">אשר את כל החיילים</Button>
             {constantPermissionGroup}
         </Box>
     );

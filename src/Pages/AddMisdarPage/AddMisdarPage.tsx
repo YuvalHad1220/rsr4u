@@ -13,14 +13,15 @@ const AddMisdarPage = () => {
     // then we let the user edit the results \ confirm and send to db
 //    const [attendents, setAttendents] = useState<personData[]>([])
     const [gotAttendents, setGotAttendents] = useState<boolean>(false);
+    const [forApproval, setForApproval] = useState<boolean>(false);
     const onAttendentsData = (attendents: personData[]) => {
         setGotAttendents(true);
     };
 
     return (
-        <Grid container width="100%" height="100%" gap={1.5}>
-            <Grid item md={4} sm={12}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
-            {gotAttendents && <Grid item md={4} sm={12}><AddMissings/></Grid>}
+        <Grid container width="100%" height="100%" spacing={1.5}>
+            <Grid item md={gotAttendents ? 4 : 12} sm={12}><AddAttendents onAttendentsData={onAttendentsData}/></Grid>
+            {gotAttendents && <Grid item md={forApproval ? 4 : 8} sm={12}><AddMissings/></Grid>}
             {/*<Grid item md={4} sm={12}><AddAttendents onAttendentsData={onAttendentsData}/></Grid> */}
         </Grid>
     );

@@ -11,7 +11,7 @@ interface MultipleSelectProps {
 };
 
 
-const MultipleSelect: React.FC<MultipleSelectProps> = ({label,value, options, onSelection, readOnly}) => {
+const MultipleSelect: React.FC<MultipleSelectProps> = ({label,value, options, onSelection, readOnly, ...rest}) => {
     
 return (
     <Autocomplete
@@ -25,6 +25,8 @@ return (
       options={options}
     // getOptionLabel={(option) => option} if we wont get an array of string this is how we filter
       renderInput={(params) => (<TextField {...params} label={label} inputProps={{...params.inputProps, readOnly: readOnly !== undefined}}/>)}
+      {...rest}
+
     />
 
 );

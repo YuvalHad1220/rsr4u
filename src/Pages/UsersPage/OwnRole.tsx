@@ -7,7 +7,7 @@ const OwnRole = () => {
     <Box sx={{display: "flex", gap: 1.5, justifyContent: "center", alignItems: "center", height: "35%"}}>
         <Typography variant="h6" >מקטנא"ר</Typography>
         <Divider orientation="vertical" />
-        <Typography variant="h6">יובל הדר</Typography>
+        <Typography variant="h6">ניב פדידה</Typography>
         <Divider orientation="vertical" />
         <Typography variant="h6">אדמין</Typography>
         <Divider orientation="vertical" />
