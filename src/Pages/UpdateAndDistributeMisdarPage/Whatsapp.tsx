@@ -11,7 +11,7 @@ const Whatsapp = () => {
         <Box sx={{display: "flex", flexDirection: "column"}}>
             <Typography variant="h4" fontWeight="bold">הודעה נשלחה</Typography>
             <Box alignSelf="center">
-                <Typography variant="h6"> על ידי: רגינה</Typography>
+                <Typography variant="h6"> על ידי: נגד משמעת</Typography>
                 <Typography variant="h6">בתאריך: 29.1.23</Typography>
                 <Typography variant="h6">בשעה: 12:34</Typography>
             </Box>

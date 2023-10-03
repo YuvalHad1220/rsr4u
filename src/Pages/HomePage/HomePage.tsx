@@ -12,7 +12,7 @@ const HomePage = () => {
         <Stack rowGap={1.5} height="100%">
             <Grid container columnSpacing={1.5} height="15%">
                 <Grid item xs={4}><StatusCard mainTitle='תאריך המסדר הבא' secondaryTitle={new Date().toLocaleDateString()} bottomTitle='יום שני בשעה 12:00' icon={<Groups2Icon color="secondary"/>} /></Grid>
-                <Grid item xs={4}><StatusCard mainTitle='האם נשלחה הודעה בארמי' secondaryTitle="נשלחה" bottomTitle='ע"י רגינה ב21.12.23, יום שני בשעה 16:43' secondaryTitleColor="success.light" icon={<MicrosoftIcon color="info"/>} /></Grid>
+                <Grid item xs={4}><StatusCard mainTitle='האם נשלחה הודעה בארמי' secondaryTitle="נשלחה" bottomTitle='ע"י נגד משמעת ב21.12.23, יום שני בשעה 16:43' secondaryTitleColor="success.light" icon={<MicrosoftIcon color="info"/>} /></Grid>
                 <Grid item xs={4}><StatusCard mainTitle='האם נשלחה הודעה בווצאפ' secondaryTitle="לא נשלחה" secondaryTitleColor="error.light" icon={<WhatsAppIcon color="success"/>} /></Grid>
             </Grid>
             <Grid container columnSpacing={1.5} height="85%">

@@ -51,20 +51,25 @@ const DownloadMisdarPage = () => {
                             </TableRow>
                             )
                         })}
+
+                        <TableRow>
+                        <TablePagination
+                            count={mData.length}
+                            labelRowsPerPage= "שורות לעמוד:"
+                            rowsPerPageOptions={[20, -1]}
+                            labelDisplayedRows={({ from, to, count }) =>
+                            `${from}-${to} מתוך ${count !== -1 ? count : `${to}`}`}
+                            onPageChange={(_, page) => setPageIndex(page)} 
+                            page={pageIndex} 
+                            rowsPerPage={visisbleRows} 
+                            onRowsPerPageChange={(e) => setVisibleRows(parseInt(e.target.value))} 
+                        />
+                        </TableRow>
                     </TableBody>
                 </Table>
+                
             </TableContainer>
-            <TablePagination
-                count={mData.length}
-                labelRowsPerPage= "שורות לעמוד:"
-                rowsPerPageOptions={[20, -1]}
-                labelDisplayedRows={({ from, to, count }) =>
-                `${from}-${to} מתוך ${count !== -1 ? count : `${to}`}`}
-                onPageChange={(_, page) => setPageIndex(page)} 
-                page={pageIndex} 
-                rowsPerPage={visisbleRows} 
-                onRowsPerPageChange={(e) => setVisibleRows(parseInt(e.target.value))} 
-            />
+           
         </CustomPaper>
         </Stack>
     );

@@ -13,7 +13,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
-
+import AddIcon from '@mui/icons-material/Add';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import DomainAddIcon from '@mui/icons-material/DomainAdd';
@@ -23,7 +23,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import InfoIcon from '@mui/icons-material/Info';
 import HomeIcon from '@mui/icons-material/Home';
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
-import { Typography, useMediaQuery } from '@mui/material';
+import { Button, FormControl, InputLabel, MenuItem, Select, Typography, useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { Outlet, useLocation } from 'react-router';
@@ -182,7 +182,19 @@ export default function Sidebar() {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' fontWeight="bold">{location.pathname}</Typography>
-          
+          <Box sx={{ml: "auto", width: "13rem", display: "flex"}}>
+          <FormControl size='small' fullWidth>
+            <InputLabel>יחידה</InputLabel>
+            <Select label="יחידה" value="MEKATNAR">
+              <MenuItem value="MEKATNAR">מקטנא"ר</MenuItem>
+              <MenuItem value="ACADEMY">אקדמיה</MenuItem>
+            </Select>
+          </FormControl>
+          <Button>
+            <AddIcon/>
+          </Button>
+          </Box>
+
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
