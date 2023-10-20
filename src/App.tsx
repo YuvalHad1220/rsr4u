@@ -1,16 +1,18 @@
 import MainTheme from "./General/MainTheme"
 import Sidebar from "./General/Sidebar";
+import { Suspense, lazy } from "react";
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import mappings from "./assets/routeMappings";
 import HomePage from "./Pages/HomePage/HomePage";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
-import DevPage from "./Pages/DevPage/DevPage";
-import AddMisdarPage from "./Pages/AddMisdarPage/AddMisdarPage";
-import DownloadMisdarPage from "./Pages/DownloadMisdarPage/DownloadMisdarPage";
-import UpdateAndDistributeMisdarPage from "./Pages/UpdateAndDistributeMisdarPage/UpdateAndDistributeMisdarPage";
+import AddMisdarPage from "./Pages/AddMisdarPage/AddMisdarPage"; 
 import LastMisdarDataPage from "./Pages/LastMisdarDataPage/LastMisdarDataPage";
-import UsersPage from "./Pages/UsersPage/UsersPage";
-import AboutPage from "./Pages/AboutPage/AboutPage";
+const SoldiersPage = lazy(() => import("./Pages/SoldiersPage/SoldiersPage"));
+const UpdateAndDistributeMisdarPage = lazy(() => import("./Pages/UpdateAndDistributeMisdarPage/UpdateAndDistributeMisdarPage"));
+const DevPage = lazy(() => import("./Pages/DevPage/DevPage")); //
+const MisdarTablePage = lazy(() => import("./Pages/MisdarTablePage/MisdarTablePage")); //
+const UsersPage = lazy(() => import("./Pages/UsersPage/UsersPage")); // 
+const AboutPage = lazy(() => import("./Pages/AboutPage/AboutPage")); //
 
 function App() {
   const router = createBrowserRouter([
@@ -21,12 +23,13 @@ function App() {
       children: [
         {path: mappings.homepage, element: <HomePage />},
         {path: mappings.lastMisdarData, element: <LastMisdarDataPage />},
-        {path: mappings.devDebug, element: <DevPage />},
+        {path: mappings.devDebug, element: <Suspense><DevPage /></Suspense>},
         {path: mappings.addMisdar, element: <AddMisdarPage />},
-        {path: mappings.downloadMisadar, element: <DownloadMisdarPage />},
-        {path: mappings.updateAndDistributeMisdar, element: <UpdateAndDistributeMisdarPage />},
-        {path: mappings.userPermissions, element: <UsersPage />},
-        {path: mappings.about, element: <AboutPage />}
+        {path: mappings.misdarTable, element: <Suspense><MisdarTablePage/></Suspense>},
+        {path: mappings.updateAndDistributeMisdar, element: <Suspense><UpdateAndDistributeMisdarPage /></Suspense>},
+        {path: mappings.usersPage, element:<Suspense><UsersPage/></Suspense>},
+        {path: mappings.soldiersPage, element:<Suspense><SoldiersPage/></Suspense>},
+        {path: mappings.about, element: <Suspense><AboutPage /></Suspense>}
       ]
     }
   ]);

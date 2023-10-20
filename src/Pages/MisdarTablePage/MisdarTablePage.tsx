@@ -3,7 +3,7 @@ import CustomPaper from "../../General/Reusables/CustomPaper"
 import mData from "./MOCK_DATA.json"
 import { useState } from "react";
 
-const DownloadMisdarPage = () => {
+const MisdarTablePage = () => {
     const [visisbleRows, setVisibleRows] = useState(20);
     const [pageIndex, setPageIndex] = useState(0);
     const CustomTableCell = styled(TableCell)({textAlign: "center"});
@@ -75,4 +75,4 @@ const DownloadMisdarPage = () => {
     );
 };
 
-export default DownloadMisdarPage;
+export default MisdarTablePage;

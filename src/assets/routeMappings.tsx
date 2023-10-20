@@ -4,9 +4,10 @@ const mappings = {
     homepage: "/homepage",
     lastMisdarData: "/lastMisdarData",
     addMisdar: "/addMisdar",
-    downloadMisadar: "/downloadMisdar",
+    misdarTable: "/misdarTable",
     updateAndDistributeMisdar: "/updateAndDistributeMisdar",
-    userPermissions: "/usersPage",
+    usersPage: "/usersPage",
+    soldiersPage: "soldiersPage",
     logOut: "/logOut",
     about: "/about"
 };

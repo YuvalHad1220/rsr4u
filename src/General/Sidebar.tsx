@@ -17,6 +17,7 @@ import AddIcon from '@mui/icons-material/Add';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import DomainAddIcon from '@mui/icons-material/DomainAdd';
+import HailIcon from '@mui/icons-material/Hail';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import UpdateIcon from '@mui/icons-material/Update';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -122,13 +123,14 @@ export default function Sidebar() {
   };
   const adminOptions = [{text: "דיבאגר", icon: <BugReportIcon color='secondary'/>, to: mappings.devDebug}];
   const rasarOptions = [
-    {text: "משתמשי מערכת", icon: <AdminPanelSettingsIcon color='primary'/>, to: mappings.userPermissions}
+    {text: "משתמשי מערכת", icon: <AdminPanelSettingsIcon color='primary'/>, to: mappings.usersPage},
+    {text: "חיילי יחידה", icon: <HailIcon color='primary'/>, to: mappings.soldiersPage}
   ];
   const rasarAsisstantOptions = [
     {text: "מסך הבית", icon: <HomeIcon color='primary' />, to: mappings.homepage}, 
     {text: "פירוט מסדר אחרון", icon: <GroupWorkIcon color='primary' />, to: mappings.lastMisdarData},
     {text: "הוסף מסדר", icon: <DomainAddIcon color='primary'/> , to: mappings.addMisdar}, 
-    {text: "הורדת אקסל מסדר", icon: <TableChartIcon color='primary'/>, to: mappings.downloadMisadar}
+    {text: "טבלת מסדר", icon: <TableChartIcon color='primary'/>, to: mappings.misdarTable}
   ];
   const rasarWorkerOptions = [{text: "עדכון והפצת תאריך מסדר", icon: <UpdateIcon color='primary'/>, to: mappings.updateAndDistributeMisdar}];
 
@@ -138,6 +140,9 @@ export default function Sidebar() {
 ];
 
   const optionsList = [adminOptions, rasarAsisstantOptions, rasarWorkerOptions, rasarOptions, loggedInOptions]; // will be determined by permissions system
+
+
+  const currentLocation = optionsList.flat().find(item => item.to === location.pathname).text;
 
   const OptionsListComp = optionsList.map((options, i) => {
       return (
@@ -181,7 +186,7 @@ export default function Sidebar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' fontWeight="bold">{location.pathname}</Typography>
+          <Typography variant='h6' fontWeight="bold">{currentLocation}</Typography>
           <Box sx={{ml: "auto", width: "13rem", display: "flex"}}>
           <FormControl size='small' fullWidth>
             <InputLabel>יחידה</InputLabel>

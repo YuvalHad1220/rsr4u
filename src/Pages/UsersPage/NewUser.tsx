@@ -1,6 +1,7 @@
 import { Badge, Box, Button, FormControl, InputLabel, MenuItem, Select, Tab, Tabs, TextField, Typography } from "@mui/material";
 import CustomPaper from "../../General/Reusables/CustomPaper";
 import { useState } from "react";
+import MultipleSelect from "../../General/Reusables/MultilpleSelect";
 
 const NewUser = () => {
     const jobs = ["עובד רסר", "אדמין", "נגד משמעת", "רסר"];
@@ -27,6 +28,7 @@ const NewUser = () => {
                     {jobs.map(role => <MenuItem key={role} value={role}>{role}</MenuItem>)}
                 </Select>
                 </FormControl>
+                <MultipleSelect label="גישה ליחידות" options={['מקטנא"ר', "אקדמיה"]} readOnly onSelection={console.log}/>
                 <TextField label="מספר אישי"/>
                 <TextField label="דרגה"/>
                 <TextField type="password" label="סיסמה"/>
